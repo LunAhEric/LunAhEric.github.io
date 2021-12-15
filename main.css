@@ -1,0 +1,65 @@
+.divcss{
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    width: 202px;
+    height: auto;
+    line-height: 25px;
+    margin: auto;
+    margin-top: 5%;
+    max-width: 50%;
+    border: brown solid 3px;
+    padding: 30px;
+}
+
+.box{
+    background-color: rgb(245, 154, 17);
+    border: solid red 5px;
+    font-size: 20px;
+    width: 200px;
+    height: auto;
+    margin: auto;
+    margin-top: 1%;
+    padding: 30px;
+}
+
+.wrap{
+    width: 960px;
+    background-color: royalblue; 
+    margin: auto;
+    margin-top: 1%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col{
+    width: 118px;
+    border: 1px solid red;
+    /* height: 100px;  */
+    background-color: salmon; 
+    padding: 10px;
+    margin: 10px;
+}
+.col img{
+    width: 100%;
+}
+
+.pricd {
+    width: 1200px;
+    background-color: rgb(217, 231, 22); 
+    margin: auto;
+    margin-top: 1%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.colon {
+    width: 174px;
+    border: 3px double rgb(241, 6, 6);
+    background-color: salmon;
+    padding: 15px;
+    margin: 15px;
+}
+
+.colon img {
+    width: 100%;
+}
