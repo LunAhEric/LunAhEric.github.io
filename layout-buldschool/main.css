@@ -1,3 +1,9 @@
+.headBg {
+    background-image: url("/layout-buldschool/img/a01.png");
+    margin: auto;
+    border: solid 1px;
+}
+
 .divhe {
     margin: auto;
     border: solid 0px;
@@ -5,14 +11,6 @@
     width: 1200px;
     height: auto;
     color: white;
-}
-
-.headBg {
-    background-image: url("/layout-buldschool/img/a01.png");
-    margin: auto;
-    width: 1200px;
-
-    border: solid 1px;
 }
 
 .headLOGO {
@@ -28,7 +26,7 @@
 
 }
 
-.headLOGO h2 {
+.headLOGO h1 {
     padding-top: 5px;
     font-size: 30px;
     white-space: nowrap;
@@ -131,7 +129,7 @@
 
 .spaen {
     margin: auto;
-    background-color: rgba(0, 0, 0, .6);
+    background-color: rgba(27, 0, 148, 0.74);
     background-image: url("/layout-buldschool/img/asset 5.png");
     background-blend-mode: multiply;
     background-size: cover;
