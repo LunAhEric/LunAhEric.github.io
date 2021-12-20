@@ -8,7 +8,7 @@
 }
 
 .headBg {
-    background-image: url("/img/a01.png");
+    background-image: url("/layout-buldschool/img/a01.png");
     margin: auto;
     width: 1200px;
 
@@ -132,7 +132,7 @@
 .spaen {
     margin: auto;
     background-color: rgba(0, 0, 0, .6);
-    background-image: url("/img/asset 5.png");
+    background-image: url("/layout-buldschool/img/asset 5.png");
     background-blend-mode: multiply;
     background-size: cover;
     background-position: center center;
