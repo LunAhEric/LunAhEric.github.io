@@ -1,147 +1,243 @@
-.headBg {
-    background-image: url("/layout-buldschool/img/a01.png");
-    margin: auto;
-    border: solid 1px;
+.headerbg {
+	background-image: url("img/asset_BG.png");
+	background-color: rgba(0, 0, 0, 0.199);
+	background-blend-mode: multiply;
 }
 
-.divhe {
-    margin: auto;
-    border: solid 0px;
-    display: flex;
-    width: 1200px;
-    height: auto;
-    color: white;
+.headerTitle {
+	margin: auto;
+	width: 1160px;
+	padding: 20px;
+	display: flex;
+	justify-content: space-around;
+	align-content: center;
+	align-items: center;
+	text-align: center;
+	color: white;
 }
 
-.headLOGO {
-    text-align: center;
-    margin-top: 15px;
+.headerTitle ul, li {
+	display: flex;
+	padding: 10px;
 }
 
-.headLOGO img {
-    width: 50px;
-    height: 50px;
-    padding-top: 10px;
-    padding-right: 10px;
+.headerTitle,
+.headerTitle a {
+	color: white;
+	text-decoration: none;
+}
+
+.headerTitle h1 {
+	font-size: 30px;
+	text-align: center;
+	display: inline-block;
+}
+
+.headerTitle p {
+	font-size: 10px;
+}
+
+.headerbox {
+	width: 1100px;
+	margin: auto;
+	text-align: center;
+	padding: 50px;
+	color: white;
+}
+
+.headerbox p {
+	font-size: 72px;
+	margin: auto;
+	line-height: 200px;
+}
+
+.headerbox a {
+	color: white;
+	background-color: #596fd180;
+	text-decoration: none;
+	padding: 10px;
+	margin: 50px;
+}
+
+
+:root {
+	--col-gap: 15px;
+}
+
+.body {
+	max-width: 1200px;
+	margin: auto;
+}
+
+.body .row,
+.bodymiddle .row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+
+[class*='col-'],
+[class*='row-cols']>.col {
+	padding-left: calc(var(--col-gap) * -1);
+	padding-right: calc(var(--col-gap) * -1);
+	box-sizing: border-box;
+}
+
+.row-cols-1>.col {
+	width: 100%;
+}
+
+.row-cols-2>.col {
+	width: 50%;
+}
+
+.row-cols-3>.col {
+	width: 33.3333%;
+}
+
+.row-cols-4>.col {
+	width: 25%;
+}
+
+.row-cols-5>.col {
+	width: 20%;
+}
+
+.row-cols-6>.col {
+	width: 16.666666%;
+}
+
+.item {
+	margin-bottom: 10px;
+	padding: 15px;
+	margin: 15px;
+	margin-top: 30px;
+	/* background-color: crimson; */
+	text-align: center;
 
 }
 
-.headLOGO h1 {
-    padding-top: 5px;
-    font-size: 30px;
-    white-space: nowrap;
-    padding-bottom: 5px;
-}
-
-.headLOGO p {
-    font-size: 10px;
-    padding-top: 5px;
-    white-space: nowrap;
-}
-
-
-.head {
-    height: 119px;
-    display: flex;
-    width: 1200px;
-    flex-wrap: wrap;
-}
-
-.headMin {
-
-    text-align: center;
-    font-size: 17px;
-    margin: auto;
-    display: flex;
-}
-
-.headBig {
-    text-align: center;
-    margin: auto;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    font-size: 72px;
-    color: white;
-    width: 1200px;
-}
-
-.bodyFirst {
-    text-align: center;
-    display: flex;
-    width: 1200px;
-    margin: auto;
-    margin-bottom: 40px;
-    margin-top: 30px;
-}
-
-.bodydiv {
-    width: 600px;
-    padding: 15px;
-}
-
-.bodydiv h3 {
-    font-size: 40px;
-    line-height: 50px;
-    margin-bottom: 20px;
-    font-weight: bold;
-    line-height: 50px;
+.item .Bigfont {
+	font-size: 30px;
+	font-weight: bold;
+	line-height: initial;
 
 }
 
-.bodydiv h4 {
-    padding-top: 30px;
-    font-size: 30px;
-    line-height: 50px;
-    font-weight: bold;
-}
-
-.bodyFirst ul {
-    padding-left: 25px;
-    font-size: 25px;
-    line-height: 30px;
-    font-weight: lighter;
-    text-align: left;
-}
-
-.bodydiv article {
-    font-size: 20px;
-    text-align: left;
-    line-height: 30px;
-    padding-top: 10px;
-    padding-left: 40px;
-    padding-right: 40px;
-}
-
-.bodydivimg {
-    /* margin: auto; */
-    width: 30%;
-    margin-top: 50px;
-    margin-bottom: 15px;
-}
-
-.bodyRang {
-    width: 1200px;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    padding-top: 100px;
+.item .Text {
+	text-align: left;
+	line-height: initial;
 }
 
 .spaen {
-    margin: auto;
-    background-color: rgba(27, 0, 148, 0.74);
-    background-image: url("/layout-buldschool/img/asset 5.png");
-    background-blend-mode: multiply;
-    background-size: cover;
-    background-position: center center;
-    width: 1200px;
-    height: 127px;
+	margin: auto;
+	background-color: rgba(27, 0, 148, 0.418);
+	background-image: url("img/asset5.png");
+	background-blend-mode: multiply;
+	background-size: cover;
+	background-position: center center;
+	color: white;
+	padding: 40px;
+	line-height: 45px;
 }
 
-.spaen h2 {
-    color: white;
-    align-items: center;
-    margin-top: 5%;
-    font-size: 25px;
-    letter-spacing: 10px
+.spaen p {
+	text-align: center;
+	margin: auto;
+	font-size: 35px;
+	width: 1200px;
+}
+
+.bodymiddle {
+	max-width: 1200px;
+	margin: auto;
+	padding: 15px;
+}
+
+.redH3 {
+	color: red;
+	font-weight: 900;
+}
+
+.lileft,
+.lileft li {
+	flex-wrap: nowrap;
+	text-align: left;
+
+}
+
+.heightText {
+	line-height: 30px;
+}
+
+.liIcon::before {
+	content: '●　';
+}
+
+.pic {
+	padding: 30px;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.pic img {
+	width: 100%;
+}
+
+.picpading {
+	height: 50%;
+}
+
+.hightpic {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 300px;
+}
+
+.footerbg {
+	background-color: #ccc;
+}
+
+.footerbody {
+	width: 1200px;
+	margin: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+}
+
+.footerSP {
+	text-align: left;
+	line-height: 24px;
+}
+
+.footerSP h4 {
+	font-size: 30px;
+	line-height: 36px;
+	font-weight: bold;
+}
+
+.footerSP p {
+	font-size: 14px;
+}
+
+.footerIcon {
+	display: flex;
+	align-items: center;
+	/* flex-wrap: wrap; */
+}
+
+.footerIcon a {
+	padding: 10px;
+	color: black;
+}
+
+.footerIcon .CC {
+	align-items:flex-end;
 }
