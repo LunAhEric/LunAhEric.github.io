@@ -1,0 +1,29 @@
+.divcss {
+    text-align: center;
+    width: 202px;
+    height: auto;
+    line-height: 25px;
+    margin: auto;
+    margin-top: 5%;
+    max-width: 50%;
+    border: brown solid 3px;
+    padding: 30px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a::before {
+    content: '※';
+}
+
+.box {
+    text-align: left;
+    padding-top: 5px;
+
+}
+h1{
+    font-size: 36px;
+    padding: 20px;
+}
