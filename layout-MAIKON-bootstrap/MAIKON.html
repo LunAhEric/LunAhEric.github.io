@@ -9,11 +9,254 @@
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+		integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
 
 	<title>MAIKON</title>
+	<style>
+		.fixed-top {
+			right: 15%;
+			left: 15%;
+		}
+
+		.navBtn {
+			background-color: white;
+			border: 1px solid rgba(112, 128, 144, 0.712);
+			font-size: 15px;
+			font-weight: bolder;
+			padding: 10px;
+			border-radius: 5%;
+			transition: .3s;
+			color: rgba(112, 128, 144, 0.712);
+		}
+
+		.navBtn:hover {
+			background-color: springgreen;
+			border: 1px solid rgba(255, 255, 255, 0);
+			color: white;
+		}
+
+		.navBtn:focus {
+			box-shadow: none;
+		}
+
+		.navbar-brand:focus>.navBtn {
+			display: none;
+		}
+
+		.selfbtn-g,
+		.selfbtn-s {
+			transition: .5s;
+		}
+
+		.selfbtn-g:hover {
+			background-color: slategray;
+			border: 1px solid slategray;
+			box-shadow: none;
+		}
+
+
+		.selfbtn-s:hover {
+			background-color: springgreen;
+			border: 1px solid springgreen;
+			color: white;
+		}
+	</style>
 </head>
 
 <body>
+
+	<div class="container">
+		<div class="row align-items-start ">
+			<div class="col">
+				<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white ">
+					<div class="container-fluid">
+						<a class="navbar-brand" href="#"><img src="img/img01.png" alt=""></a>
+						<img src="" class="navbar-brand"></img>
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+							aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse flex-lg-row-reverse " id="navbarTogglerDemo02">
+							<ul class="navbar-nav justify-content-lg-end align-items-end align-items-lg-center mb-2 mb-lg-6 mb-lg-1">
+								<li class="nav-item me-lg-auto">
+									<a class="nav-link" aria-current="page" href="#">Home</a>
+								</li>
+								<li class="nav-item ">
+									<a class="nav-link" href="#">About</a>
+								</li>
+								<li class="nav-item ">
+									<a class="nav-link" href="#">Services</a>
+								</li>
+								<li class="nav-item ">
+									<a class="nav-link" href="#">Team</a>
+								</li>
+								<li class="nav-item ">
+									<a class="nav-link" href="#">Case studio</a>
+								</li>
+								<li class="nav-item ">
+									<a class="nav-link" href="#">Contacts</a>
+								</li>
+								<li>
+									<button class="btn btn-sm btn-outline-secondary navBtn text-uppercase"
+										type="button">Subscribe</button>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
+
+
+			<div class="row align-items-center mt-auto pt-5 pt-lg-5 g-0 position-relative">
+				<div class="col col-md-6 p-5 ps-md-0"></div>
+			</div>
+
+
+			<div class="row align-items-center mt-auto g-0 position-relative">
+				<div class="col col-md-6 ps-md-0">
+					<h1 class="mt-auto">Our creativity is your success</h1>
+					<p>We break all boundaries if they happen on our way of project’s development!</p>
+					<div class="col p-4 p-lg-4  ps-md-0 justify-content-center">
+						<button type="button" class="btn btn-success btn-lg text-uppercase selfbtn-g shadow">
+							<a class="text-white text-decoration-none" href="#">Learn More</a>
+						</button>
+						<button type="button" class="btn btn-lg text-uppercase text-secondary ">Watch Video<i
+								class="far fa-play-circle p-2"></i>
+						</button>
+					</div>
+				</div>
+				<div class="col-md-6 mb-md-0 p-md-4">
+					<img src="img/img21.png" class="position-absolute">
+					<img src="img/img13.png" class="w-100 position-relative" alt="">
+				</div>
+			</div>
+			<div class="row align-items-center mt-auto pt-5 pt-lg-5 g-0 position-relative flex-row-reverse">
+				<div class="col col-md-6 p-4 ps-md-0">
+					<h1 class="mt-auto">Creative challenges are our passion</h1>
+					<p>Our team of designers and developers work closely together to build a creative and positive working
+						environment. Functionality is as important to us as aesthetics.</p>
+					<div class="col p-4 p-lg-4  ps-md-0 justify-content-center">
+						<button type="button" class="btn btn-success btn-lg text-uppercase selfbtn-g shadow">
+							<a class="text-white text-decoration-none" href="#">About Us</a>
+						</button>
+						<button type="button" class="btn btn-lg text-uppercase btn-outline-secondary selfbtn-s">
+							<a class="text-secondary text-decoration-none" href="#">Contact Us</a>
+						</button>
+					</div>
+				</div>
+				<div class="col-md-6 mb-md-0 p-md-4">
+					<img src="img/img24.png" class="w-100" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="container">
+		<div class="row align-items-center mt-auto g-0 ">
+			<div class="col col-lg-0 col-md-0 p-5 ps-md-0">
+				<p class="display-5">We provide a wide range of creative services</p>
+			</div>
+		</div>
+		<div class="row mt-auto g-5">
+			<div class="col ">
+				<div class="card">
+					<img src="img/img35.png" class="card-img-top w-50 p-2">
+					<div class="card-body">
+						<h5 class="card-title">Web Design & Brending</h5>
+						<p class="card-text">A great brand combines design and conveys company’s value messaging to evoke emotion
+							and drive strategy.</p>
+						<a href="#" class=" text-secondary text-uppercase fw-bolder text-decoration-none">Read More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col ">
+				<div class="card">
+					<img src="img/img38.png" class="card-img-top w-50 p-2">
+					<div class="card-body">
+						<h5 class="card-title">Graphic Design</h5>
+						<p class="card-text">Rich experience plus unlimited imagination create our successful service discovered by
+							clients.</p>
+						<a href="#" class=" text-secondary text-uppercase fw-bolder text-decoration-none">Read More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col ">
+				<div class="card">
+					<img src="img/img39.png" class="card-img-top w-50 p-2">
+					<div class="card-body">
+						<h5 class="card-title">Video Production</h5>
+						<p class="card-text">Creating and handling professional video is our strong point. It plays major role in
+							your
+							digital business strategy.</p>
+						<a href="#" class=" text-secondary text-uppercase fw-bolder text-decoration-none">Read More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-auto g-5">
+			<div class="col justify-content-center align-items-center ">
+				<div class="card">
+					<img src="img/img40.png" class="card-img-top w-50 p-2">
+					<div class="card-body">
+						<h5 class="card-title">SEO</h5>
+						<p class="card-text">We provide everything your site needs to perform at it’s highest capabilities on the
+							major search engines.</p>
+						<a href="#" class=" text-secondary text-uppercase fw-bolder text-decoration-none">Read More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col ">
+				<div class="card">
+					<img src="img/img41.png	" class="card-img-top w-50 p-2">
+					<div class="card-body">
+						<h5 class="card-title">Digital Marketing</h5>
+						<p class="card-text">We do collateral design, interactive design, hoarding, signage, presentation centres,
+							and
+							more.</p>
+						<a href="#" class=" text-secondary text-uppercase fw-bolder text-decoration-none">Read More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col ">
+				<div class="card">
+					<img src="img/img42.png" class="card-img-top w-50 p-2">
+					<div class="card-body">
+						<h5 class="card-title">Infographics</h5>
+						<p class="card-text">Turn your data into captivating artwork that will keep your audience engaged. Our team
+							can help you with it.</p>
+						<a href="#" class=" text-secondary text-uppercase fw-bolder text-decoration-none">Read More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row align-items-center mt-auto pt-5 pt-lg-5 g-0  ">
+			<div class="col col-md-6 p-4 ps-md-0">
+				<h1 class="mt-auto">If you have any questions, please contact us</h1>
+				<p>Our professional support team try to do their best to provide you with high-quality consultations concerning
+					any question about our services.</p>
+				<div class="col p-4 p-lg-4  ps-md-0 justify-content-center">
+					<button type="button" class="btn btn-success btn-lg text-uppercase selfbtn-g shadow">
+						<a class="text-white text-decoration-none" href="#">Contact Us</a>
+					</button>
+					<button type="button" class="btn btn-lg text-uppercase btn-outline-secondary selfbtn-s">
+						<a class="text-secondary text-decoration-none" href="#">subscribe</a>
+					</button>
+				</div>
+			</div>
+			<div class="col-md-6 mb-md-0 p-md-4">
+				<img src="img/img03.png" class="w-100 position-relative">
+			</div>
+		</div>
+	</div>
+
+
+
+
+
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
