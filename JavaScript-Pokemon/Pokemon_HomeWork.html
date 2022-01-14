@@ -13,12 +13,12 @@
 	<title>Pokemon圖鑑列表</title>
 	<style>
 		.bodyTop {
-			margin-top: 10%;
+			margin-top: 18%;
 		}
 
 		@media screen and (min-width: 1024px) {
 			.bodyTop {
-				margin-top: 7%;
+				margin-top: 10%;
 			}
 		}
 	</style>
@@ -41,6 +41,20 @@
 				<button class="btn w-100 h-100 btn-primary" id='reset'>Reset</button>
 			</div>
 		</div>
+		<div class="row mb-3 mt-3 justify-content-around align-content-center">
+			<div class="col-3">
+				<button class="btn w-100 h-100 btn-primary" id='time'>timer</button>
+			</div>
+			<div class="col-3">
+				<button class="btn w-100 h-100 btn-primary" id='stop'>stop</button>
+			</div>
+			<div class="col-3">
+				<button class="btn w-100 h-100 btn-primary" id='onclick'>onclick</button>
+			</div>
+			<div class="col-3">
+			</div>
+
+		</div>
 	</div>
 
 
@@ -54,18 +68,42 @@
 
 	<script>
 
-		let imgSet = document.getElementById('imgSet');
-		let startNum = 2;
-		window.onload = appendPokemon();
+		let imgSet = document.getElementById('imgSet'); //宣告 imgset 放圖片
+		let startNum = 1; //宣告全域起始變數
+		window.onload = function () {
+			resetPokemon(); //當視窗載入完成執行
+		}
 
-		//方式2:新增DOM元素
-		function appendPokemon() {
+		let onclick = document.getElementById("onclick")
+		onclick.onclick = function () {
+			resetPokemon()
+			let fileName, pathFile;
+			startNum = 899;
+			for (let i = 2; i < 899; i++) {
+				let fileName = i.toString().padStart(3, '0');
+				let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`
+				let img = document.createElement("img");
+				img.setAttribute("src", pathFile);
+				img.addEventListener("click", removeImg)
+				imgSet.appendChild(img);
+			}
+		}
+
+		function resetPokemon() {
 			let h1 = document.getElementsByTagName('h1')[0];
 			h1.innerText = "Pokemon圖鑑列表";
 			let img = document.createElement("img");
+			while (imgSet.firstChild) {
+					imgSet.removeChild(imgSet.firstChild)
+				}
+			startNum = 1;
+			let fileName = startNum.toString().padStart(3, '0');
+			startNum++;
 			img.setAttribute("src", "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png");
+			img.addEventListener("click", removeImg);
 			imgSet.appendChild(img);
 		}
+
 
 		document.getElementById("add")
 			.addEventListener("click", function () {
@@ -74,6 +112,7 @@
 					let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`
 					let img = document.createElement("img");
 					img.setAttribute("src", pathFile);
+					img.addEventListener("click", removeImg);
 					imgSet.appendChild(img);
 					startNum++;
 				}
@@ -87,6 +126,36 @@
 				}
 			})
 
+		let intervalId
+
+		document.getElementById("time").addEventListener("click", function () {
+			intervalId = setInterval(timerAdd, 500)
+		})
+		document.getElementById("stop").addEventListener("click", function () {
+			clearInterval(intervalId)
+		})
+
+		function timerAdd() {
+			if (startNum != 899) {
+				let img = document.createElement("img")
+				let no = startNum.toString().padStart(3, "0")
+				img.setAttribute("src", `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${no}.png`)
+				startNum++
+				img.setAttribute("id", no)
+				img.addEventListener("click", removeImg)
+
+				imgSet.appendChild(img)
+			} else {
+				clearInterval(intervalId)
+			}
+		}
+
+		function removeImg(event) {
+			imgSet.removeChild(event.target);
+			startNum--
+
+		}
+
 		document.getElementById("all")
 			.addEventListener("click", function () {
 				imgSet.innerHTML = "";
@@ -97,17 +166,14 @@
 					let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`
 					let img = document.createElement("img");
 					img.setAttribute("src", pathFile);
+					img.addEventListener("click", removeImg)
 					imgSet.appendChild(img);
 				}
 			})
 
 		document.getElementById("reset")
 			.addEventListener("click", function () {
-				while (imgSet.firstChild) {
-					imgSet.removeChild(imgSet.firstChild)
-				}
-				startNum = 2;
-				appendPokemon()
+				resetPokemon()
 			})
 
 	</script>
