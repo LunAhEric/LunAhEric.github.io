@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	<title>猜數字小遊戲</title>
+	<style>
+		.hem {
+			height: 15em;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- <button id="#eee">測試</button> -->
+
+	<div class="container m-1 m-auto">
+		<div class="row p-5 justify-content-center position-relative">
+			<div id="groupBtn" class="sticky-top align-self-start  col-3 btn-group-vertical justify-content-start"
+				role="group" aria-label="Basic example">
+				<div class="col-12 m-1 text-center ">
+					<button id="gameStart" class="btn btn btn-primary btn-lg ">開始遊戲</button>
+				</div>
+				<div class="col-12 m-1 text-center ">
+					<button id="gamecheck" class="btn btn-warning btn-lg disabled">檢查答案</button>
+				</div>
+				<div class="col-12 m-1 text-center ">
+					<button id="gameAns" class="btn btn-danger btn-lg disabled">查看解答</button>
+				</div>
+				<div class="col-12 m-1 text-center ">
+					<button id="gameGivup" class="btn btn-secondary btn-lg disabled">重新開始</button>
+				</div>
+				<div class="col-12 m-1 text-center ">
+					<input id="gameinput" type="text" name="inputNumber" maxlength="4"
+						oninput="value=value.replace(/[^\d]/g,'')" disabled="true">
+				</div>
+				<div class="col-12 m-1 text-center ">
+					<p id="gameEnd"></p>
+				</div>
+			</div>
+			<div id="groupLog" class="col-6 ">
+				<div class="row ">
+					<div class="col-12 mb-2 ">
+						<h2 id="logtitle" class=" m-auto">遊戲歷程</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div id="gamelog">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+
+	<script>
+		let getNumber = []
+	</script>
+
+	<script type="module">
+		import { $qs, $crEl } from "../JavaScript-Hackathon/modules/helpers.js"
+
+		let gameStart = $qs('#gameStart')
+		let gameAns = $qs('#gameAns')
+		let gamecheck = $qs('#gamecheck')
+		let gameGivup = $qs('#gameGivup')
+		let gamelog = $qs('#gamelog')
+		let gameinput = $qs('#gameinput')
+		let gameEnd = $qs('#gameEnd')
+		let logtitle = $qs('#logtitle')
+
+
+		gameStart.addEventListener("click", GameStart)
+		gameGivup.addEventListener("click", GameReset)
+		gamecheck.addEventListener("click", Gamecheck)
+		gameAns.addEventListener("click", GameAns)
+
+		function GetAB(Array) {
+			let a = 0
+			let b = 0
+			let getAns = []
+			for (let i = 0; i < Array.length; i++) {
+				let idx = getNumber.indexOf(Array[i]);
+				if (idx != -1) {
+					if (idx == i) {
+						a++;
+					} else {
+						b++;
+					}
+				}
+			}
+			getAns.push(a, b)
+			return (getAns)
+		}
+
+		function Gamecheck() {
+
+			if (isNull(gameinput.value) && isFour(gameinput.value) && isNoRepeat(gameinput.value)) {
+				let inputNum = gameinput.value.split('')
+				let getAns = GetAB(inputNum)
+				let pTag = $crEl('p')
+				pTag.classList.add('m-1')
+				pTag.append(`${getAns[0]}A${getAns[1]}B | ${gameinput.value}`)
+				gamelog.append(pTag)
+				gameinput.value = ""
+				if (getAns[0] == 4) {
+					let pTag = $crEl('p')
+					pTag.classList.add('m-1')
+					pTag.append("你贏了")
+					gamelog.append(pTag)
+					gamecheck.classList.add('disabled')
+					gameAns.classList.add('disabled')
+				}
+				console.log(getAns)
+			} else {
+				let pTag = $crEl('p')
+				pTag.classList.add('m-1')
+				pTag.append("輸入錯誤")
+				gamelog.append(pTag)
+				gameinput.value = ""
+			}
+		}
+
+		// document.getElementById("#eee").addEventListener("click", function () {
+		// 	let val = gameinput.value.split('')
+		// 	let bool = false
+		// 	val.forEach((el, index) => {
+		// 		if (val.indexOf(el) !== index) {
+		// 			bool = false
+		// 		} else {
+		// 			bool = true
+		// 		}
+		// 	})
+		// 	console.log(bool)
+		// })
+
+
+		function isNoRepeat(value) {
+			let val = value.split('')
+			let bool = false
+			val.forEach((el, index) => {
+				if (val.indexOf(el) !== index) {
+					bool = false
+				} else {
+					bool = true
+				}
+			})
+			return bool
+
+		}
+
+	</script>
+
+	<script>
+		function GameStart() {
+			gameStart.classList.add('disabled')
+			gameAns.classList.remove('disabled')
+			gamecheck.classList.remove('disabled')
+			gameGivup.classList.remove('disabled')
+			gameinput.disabled = false
+			GetRandom(10)
+		}
+
+		function GameReset() {
+			gameStart.classList.remove('disabled')
+			gameAns.classList.add('disabled')
+			gamecheck.classList.add('disabled')
+			gameGivup.classList.add('disabled')
+			gameinput.disabled = true
+			gameEnd.innerText = ""
+			logtitle.innerText = "遊戲歷程"
+			gamelog.innerText = ""
+			getNumber = []
+			gameinput.value = ""
+		}
+
+		function GameAns() {
+			let textString = ""
+			getNumber.forEach(item => {
+				textString += item
+			})
+			gameEnd.innerText = `答案是：${textString}`
+			gameAns.classList.add('disabled')
+			gamecheck.classList.add('disabled')
+			gameinput.disabled = true
+		}
+		function isNull(value) {
+			if (gameinput.value != "null" || gameinput.value != "") {
+				return true
+			} else {
+				return false
+			}
+		}
+		function isFour(value) {
+			if (value.length == 4) {
+				return true
+			} else {
+				return false
+			}
+		}
+
+		function GetRandom(value) {
+			while (getNumber.length != 4) {
+				let num = Math.floor(Math.random() * value).toString()
+				if (!getNumber.includes(num)) {
+					getNumber.push(num)
+				}
+			}
+			console.log(getNumber)
+		}
+	</script>
+
+</body>
+
+</html>
