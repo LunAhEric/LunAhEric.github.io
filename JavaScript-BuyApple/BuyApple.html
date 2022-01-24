@@ -9,58 +9,146 @@
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<link rel="stylesheet" href="dawCircle.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+		integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
 
 	<title>購買 iPad Air - Apple(台灣)</title>
 	<style>
+		.fs-7 {
+			font-size: 5px;
+		}
 
+		.mt-6 {
+			margin-top: 6rem !important;
+		}
+
+		.mt-8 {
+			margin-top: 8rem !important;
+		}
 	</style>
 </head>
 
-<body>
-	<div class=" bg-white">
+<body class="mt-8">
+	<div class="shadow p-2 bg-white rounded opacity-75 fixed-top">
 		<div class="container">
-			<div class="row align-items-center justify-content-center">
-				<div class="col-6">
-					<h1 class="m-1 fs-4">iPad Air</h1>
-				</div>
-				<div class="col-6">
-					<p class="m-1 fs-4 text-end" id="ntMoney">NT$XXXX起</p>
+			<div class="row align-items-center justify-content-center ">
+				<div class="col-12">
+					<section class="apple-nav d-flex justify-content-center align-items-center ">
+						<ul class="nav-bar list-unstyled d-flex m-0">
+							<!-- <li><a href="#iPhone" class="btn btn-body product">{{iPhone}}</a></li>
+							<li><a href="#iPad" class="btn btn-body product">{{iPad}}</a></li>
+							<li><a href="#watch" class="btn btn-body product">{{watch}}</a></li> -->
+						</ul>
+					</section>
+					<section class="apple-info container d-flex justify-content-between align-items-center py-2">
+						<h3 class="m-0 product-type">{{iPad}}</h3>
+						<strong class="m-0 price-top">{{$0}}</strong>
+					</section>
 				</div>
 			</div>
-			<div class="row mt-5 p-3 align-items-start justify-content-center">
-				<div class="col-6">
-					<div class="pic">
-						<img src="img/ipad-air-firstpic.png" alt="ipad-air" class=" w-100">
+		</div>
+	</div>
+
+
+
+	<div class="container mt-6">
+		<div class="row  align-items-start justify-content-center">
+			<div class="col-6 sticky-top">
+				<div class="row">
+					<div class="col-12">
+						<div class="img-box">
+							<img class="w-100 product-img" src="https://picsum.photos/id/684/600/400" alt="">
+						</div>
 					</div>
 				</div>
-				<div class="col-6 p-2">
-					<h2>購買 iPad Air </h2>
-					<div class="row p-3 align-items-center gx-2  ">
-						<div class="col-6 p-1 text-center ">
-							<button type="button" class="btn btn-lg btn-outline-secondary w-100 h-100 ">
-								<div class="dawCircle spacegray"></div>太空灰色
-							</button>
-						</div>
-						<div class="col-6 p-1 text-center">
-							<button type="button" class="btn btn-lg btn-outline-secondary w-100 h-100 ">
-								<div class="dawCircle silver"></div> 銀色
-							</button>
-						</div>
-						<div class="col-6 p-1 text-center">
-							<button type="button" class="btn btn-lg btn-outline-secondary w-100 h-100 ">
-								<div class="dawCircle green"></div> 綠色
-							</button>
-						</div>
-						<div class="col-6 p-1 text-center">
-							<button type="button" class="btn btn-lg btn-outline-secondary w-100 h-100 ">
-								<div class="dawCircle rosegold"></div> 玫瑰金色
-							</button>
-						</div>
-						<div class="col-6 p-1 text-center">
-							<button type="button" class="btn btn-lg btn-outline-secondary w-100 h-100 ">
-								<div class="dawCircle skyblue"></div> 天藍色
-							</button>
+			</div>
+
+			<div class="col-6">
+				<div class="row">
+					<div class="col-12">
+						<h1>
+							<strong class="product-name"></strong>
+						</h1>
+						<div class="accordion" id="accordionPanelsStayOpenExample">
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button class="accordion-button" type="button" data-bs-toggle="collapse"
+										data-bs-target="#panelsStayOpen-color" aria-expanded="true" aria-controls="panelsStayOpen-color">
+										外觀
+									</button>
+								</h2>
+								<div id="panelsStayOpen-color" class="accordion-collapse collapse show">
+									<div class="accordion-body">
+										<h5><strong>外觀</strong></h5>
+										<div class="row color-area">
+											<!-- <div class="col-6 mb-3">
+												<button class="btn color-btn w-100">
+													<div class="py-4 d-flex flex-column justify-content-center align-items-center">
+														<i class="fas fa-circle"></i>
+														<span class="color-name">黑色</span>
+													</div>
+												</button>
+											</div>
+											<div class="col-6 mb-3">
+												<button class="btn color-btn w-100">
+													<div class="py-4 d-flex flex-column justify-content-center align-items-center">
+														<i class="fas fa-circle"></i>
+														<span class="color-name">黑色</span>
+													</div>
+												</button>
+											</div>
+											<div class="col-6 mb-3">
+												<button class="btn color-btn w-100">
+													<div class="py-4 d-flex flex-column justify-content-center align-items-center">
+														<i class="fas fa-circle"></i>
+														<span class="color-name">黑色</span>
+													</div>
+												</button>
+											</div> -->
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- <div class="accordion-item">
+								<h2 class="accordion-header">
+									<button class="accordion-button" type="button" data-bs-toggle="collapse"
+										data-bs-target="#panelsStayOpen-spec" aria-expanded="true" aria-controls="panelsStayOpen-spec">
+										{{儲存裝置}}
+									</button>
+								</h2>
+								<div id="panelsStayOpen-spec" class="accordion-collapse collapse show">
+									<div class="accordion-body">
+										<h5><strong>{{儲存裝置}}</strong></h5>
+										<div class="row">
+											<div class="col-6 mb-3">
+												<button class=" btn color-btn w-100">
+													<div class="py-4 d-flex flex-column justify-content-center align-items-center">
+														<p class="spec-val m-0">{{64GB}}</p>
+														<span class="fit">$18900起</span>
+													</div>
+												</button>
+											</div>
+											<div class="col-6 mb-3">
+												<button class=" btn color-btn w-100">
+													<div class="py-4 d-flex flex-column justify-content-center align-items-center">
+														<p class="spec-val m-0">{{64GB}}</p>
+														<span class="fit">$18900起</span>
+													</div>
+												</button>
+											</div>
+											<div class="col-6 mb-3">
+												<button class=" btn color-btn w-100">
+													<div class="py-4 d-flex flex-column justify-content-center align-items-center">
+														<p class="spec-val m-0">{{64GB}}</p>
+														<span class="fit">$18900起</span>
+													</div>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
@@ -68,9 +156,240 @@
 		</div>
 	</div>
 
+
+
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 		crossorigin="anonymous"></script>
+
+	<script>
+
+
+
+		const appleList = [
+			{
+				type: 'iPad Air',
+				name: 'iPad Air',
+				price: 18900,
+				mainImg: './img/ipad-air-firstpic.png',
+				colorList: [
+					{ name: '太空灰色', color: '#B2B5B7', img: './img/ipad-air-select-wifi-spacegray.png' },
+					{ name: '天空藍色', color: '#C9D8E5', img: './img/ipad-air-select-wifi-blue.png' },
+					{ name: '銀色', color: '#DEE0DF', img: './img/ipad-air-select-wifi-white.png' },
+					{ name: '綠色', color: '#CDDECA', img: './img/ipad-air-select-wifi-green.png' },
+					{ name: '玫瑰金色', color: '#EBCAC3', img: './img/ipad-air-select-wifi-gold.png' },
+				],
+				spec: [
+					{
+						name: '儲存裝置',
+						specDetails: [
+							{
+								name: '64BGB',
+								fit: 0
+							},
+							{
+								name: '128GB',
+								fit: 5000
+							}
+						]
+					},
+					{
+						name: '連線能力',
+						specDetails: [
+							{
+								name: 'Wi-Fi',
+								fit: 0
+							},
+							{
+								name: 'Wi-Fi + 行動網路',
+								fit: 4300
+							}
+						]
+					},
+				]
+			},
+		]
+
+
+	</script>
+
+	<script type="module">
+		// import { $qs, $crEl } from "/modules/helpers.js"
+		import { $qs, $crEl } from "../JavaScript-Hackathon/modules/helpers.js"
+
+		const navBar = $qs('.nav-bar') //導覽列
+		const productType = $qs('.product-type') //商品類型
+		const priceTop = $qs('.price-top') //置頂價格
+		const productName = $qs('.product-name') //商品名稱
+		const productImg = $qs('.product-img') //商品圖片
+		const colorAreaBtn = $qs('[aria-controls="panelsStayOpen-color"]') //選擇商品顏色按鈕
+		const colorArea = $qs('.color-area') //商品顏色顯示
+		const accordionBox = $qs('.accordion')
+
+		window.onload = function () {
+
+			showNavBar() //渲染導覽列
+			seletctProduct(appleList[0]) //選擇商品類型
+		}
+
+		function showNavBar() {
+			const productList = appleList.map(product => product.name) // 取出商品資料列中商品名
+			productList.forEach((product, index) => { //商品名資料列疊代
+				const li = document.createElement('li') //創建 li 標籤 
+				const a = document.createElement('a') //創建 a 標籤
+				a.innerText = product //填入商品名
+				a.href = `#${product}` //填入超連結
+				a.classList.add('btn', 'product') //填入樣式表
+				a.onclick = function () { //超連結點選 置換商品資料
+					resetApple()
+					seletctProduct(appleList[index])
+				}
+				li.appendChild(a) // a 標籤塞入li
+				navBar.appendChild(li) // li 標籤塞入導覽列 navBar
+			})
+		}
+
+		function seletctProduct(product) {
+			productType.innerText = product.type
+			productName.innerText = `購買${product.name}`
+			productImg.src = product.mainImg
+			priceTop.innerText = '$0'
+			//color
+			product.colorList.forEach((item) => {
+				const div = document.createElement('div')
+				div.classList.add('col-6', 'mb-3')
+				const btn = document.createElement('button')
+				btn.classList.add('btn', 'color-btn', 'w-100')
+				btn.setAttribute('selected', 'false')
+				btn.onclick = function () {
+					colorArea.querySelectorAll('.btn').forEach(b => {
+						b.setAttribute('selected', 'false')
+					})
+					btn.setAttribute('selected', 'true')
+					productImg.src = item.img
+					colorAreaBtn.innerText = item.name
+					colorAreaBtn.click()
+				}
+				const btnDiv = document.createElement('div')
+				btnDiv.classList.add('py-4', 'd-flex', 'flex-column', 'justify-content-center', 'align-items-center')
+
+				const i = document.createElement('i')
+				i.classList.add('fas', 'fa-circle')
+				i.style.color = item.color
+				const span = document.createElement('span')
+				span.classList.add('color-name')
+				span.innerText = item.name
+				btnDiv.appendChild(i)
+				btnDiv.appendChild(span)
+				btn.appendChild(btnDiv)
+				div.appendChild(btn)
+				colorArea.appendChild(div)
+			})
+			//spec
+			product.spec.forEach((item) => {
+				const accordionItem = document.createElement('div')
+				accordionItem.classList.add('accordion-item')
+				const accordionTitle = document.createElement('h2')
+				accordionTitle.classList.add('accordion-header')
+				const accordionBtn = document.createElement('button')
+				accordionBtn.innerText = item.name
+				accordionBtn.classList.add('accordion-button')
+				accordionBtn.setAttribute('type', 'button')
+				accordionBtn.setAttribute('data-bs-toggle', 'collapse')
+				accordionBtn.setAttribute('data-bs-target', `#panelsStayOpen-${item.name}`)
+				accordionBtn.setAttribute('aria-expanded', 'true')
+				accordionBtn.setAttribute('aria-controls', `panelsStayOpen-${item.name}`)
+				accordionTitle.appendChild(accordionBtn)
+				const accordionContent = document.createElement('div')
+				accordionContent.setAttribute('id', `panelsStayOpen-${item.name}`)
+				accordionContent.classList.add('accordion-collapse', 'collapse', 'show')
+				const accordionBody = document.createElement('div')
+				accordionBody.classList.add('accordion-body')
+				const h5 = document.createElement('h5')
+				const strong = document.createElement('strong')
+				strong.innerText = item.name
+				h5.appendChild(strong)
+				const specDiv = document.createElement('div')
+				specDiv.classList.add('row')
+
+				item.specDetails.forEach((specItem) => {
+					const div = document.createElement('div')
+					div.classList.add('col-6', 'mb-3')
+					const btn = document.createElement('button')
+					btn.classList.add('btn', 'color-btn', 'w-100')
+
+					btn.setAttribute('selected', 'false')
+					btn.setAttribute('fit', specItem.fit)
+					btn.onclick = function () {
+						specDiv.querySelectorAll('.btn').forEach(b => {
+							b.setAttribute('selected', 'false')
+						})
+						btn.setAttribute('selected', 'true')
+
+						showPrice(product)
+						accordionBtn.innerText = specItem.name
+						accordionBtn.click()
+					}
+
+
+					const btnDiv = document.createElement('div')
+					btnDiv.classList.add('py-4', 'd-flex', 'flex-column', 'justify-content-center', 'align-items-center')
+
+					const p = document.createElement('p')
+					p.classList.add('spec-val', 'm-0')
+					p.innerText = specItem.name
+					const span = document.createElement('span')
+					span.classList.add('fit')
+					span.innerText = `NT$${product.price + specItem.fit}`
+					btnDiv.appendChild(p)
+					btnDiv.appendChild(span)
+					btn.appendChild(btnDiv)
+					div.appendChild(btn)
+					specDiv.appendChild(div)
+				})
+
+				accordionBody.appendChild(h5)
+				accordionBody.appendChild(specDiv)
+				accordionContent.appendChild(accordionBody)
+				accordionItem.appendChild(accordionTitle)
+				accordionItem.appendChild(accordionContent)
+				accordionBox.appendChild(accordionItem)
+			})
+		}
+
+
+		function showPrice(product) {
+			const selectedFits = Array.from(document.querySelectorAll('[fit][selected="true"]'))
+			console.log(selectedFits)
+			const money = selectedFits.length > 0 ? selectedFits.map(x => parseInt(x.getAttributeNode('fit').value)).reduce((a, b) => a + b) : 0
+
+
+			if (selectedFits.length > 0) {
+				let i
+				i = selectedFits.map(x => parseInt(x.getAttributeNode('fit').value))
+				console.log(i)
+				i = i.reduce((a, b) => a + b)
+				console.log(i)
+				console.log(`TOTAL : ${i + product.price}`)
+				var totalmoney = i + product.price
+			}
+
+			console.log(totalmoney)
+			priceTop.innerText = `$${product.price + money}`
+
+		}
+
+		function resetApple() {
+			colorArea.innerHTML = ''
+			const removeItem = accordionBox.querySelectorAll('.accordion-item')
+			if (removeItem.length > 1) {
+				for (let i = 1; i < removeItem.length; i++) {
+					accordionBox.removeChild(accordionBox.children[1])
+
+				}
+			}
+		}
+	</script>
 
 </body>
 
