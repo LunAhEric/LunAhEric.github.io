@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	<title>英雄聯盟</title>
+	<style>
+		.card-text {
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="text-center py-3">LOL英雄聯盟圖鑑</h1>
+		<div class="row justify-content-evenly" id="row"></div>
+	</div>
+	<template id="lolTemplate">
+		<div class="card col-5 col-lg-2 m-3">
+			<img src="" class="card-img-top ">
+			<div class="card-body px-0">
+				<h5 class="card-title text-center p-2"></h5>
+				<p class="card-text px-3"></p>
+				<div class="p-2">
+					<a href="#" class="btn btn-primary me-1" data-bs-toggle="modal" data-bs-target="#exampleModal">詳細內容</a>
+					<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">影片</a>
+				</div>
+			</div>
+		</div>
+	</template>
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog ">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title fw-bold" id="exampleModalLabel"></h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+		integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+		integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+		crossorigin="anonymous"></script>
+
+	<script>
+		let templateCard, championsArray = [], row, championsObj, champions;
+		let xhr = new XMLHttpRequest();
+	</script>
+
+	<script type="module">
+
+		let url = 'https://ddragon.leagueoflegends.com/cdn/10.22.1/data/zh_TW/champion.json'
+
+		row = document.querySelector('#row')
+		xhr.onload = function () {
+			championsObj = JSON.parse(this.responseText)
+			champions = championsObj.data
+			Object.keys(champions).forEach((prop, index) => {
+				templateCard = document.querySelector('#lolTemplate').content.cloneNode(true)
+				let hero = champions[prop]
+				let statsArray = [`HP：${hero.stats.hp} `, `Move-Speed：${hero.stats.movespeed}`, `Armor ：${hero.stats.armor}`, ` Spell-Block：${hero.stats.spellblock}`, `Attack-Range：${hero.stats.attackrange}`]
+
+				let _card = getCard(hero.name, hero.id, hero.blurb, index, statsArray)
+				row.append(_card)
+
+
+
+			})
+		}
+
+
+		xhr.open('GET', url)
+		xhr.send()
+
+		function getCard(name, id, description, index, stats) {
+			let p = templateCard.querySelector('p')
+			let img = templateCard.querySelector('img')
+			let h5 = templateCard.querySelector('h5')
+			let modalTitle = document.querySelector('.modal-title')
+			let modalBodyText = document.createElement('div')
+			modalBodyText.classList.add('modal-body-text', 'text-right')
+			let btn = templateCard.querySelector('.btn')
+			let videoBtn = templateCard.querySelector('.btn:nth-child(2)')
+			let modalBody = document.querySelector('.modal-body')
+
+			h5.innerText = `${index + 1} : ${id} - ${name}`
+			p.innerText = description
+			img.src = `https://cdngarenanow-a.akamaihd.net/webmain/static/pss/lol/items_splash/${id.toLowerCase()}_0.jpg`
+
+
+
+			btn.addEventListener('click', function () {
+				modalBody.innerHTML = ""
+				let modalBodyImg = document.createElement('img')
+				modalBodyImg.src = `https://cdngarenanow-a.akamaihd.net/webmain/static/pss/lol/items_splash/${id.toLowerCase()}_0.jpg`
+				modalBodyImg.classList.add('img-fluid', 'modal-body-img')
+				modalTitle.innerText = ` ${id} - ${name}`
+				modalBodyText.innerHTML = ""
+				stats.forEach(prop => {
+					let modalBodyTextP = document.createElement('p')
+					modalBodyTextP.innerText = prop
+					modalBodyText.append(modalBodyTextP)
+				})
+				modalBody.append(modalBodyImg, modalBodyText)
+			})
+
+			videoBtn.addEventListener('click', function () {
+				modalBody.innerHTML = ""
+				modalTitle.innerText = ` ${id} - ${name}`
+				let videoUrl = '<iframe width="467" height="276" src="https://www.youtube.com/embed/Wztrcr-wk4k"></iframe>'
+				modalBody.innerHTML = videoUrl
+
+			})
+			return templateCard
+		}
+
+
+
+	</script>
+
+</body>
+
+</html>
