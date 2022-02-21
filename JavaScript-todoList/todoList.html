@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>待辦事項</title>
+  <style>
+    .i-100 {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-3">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-4 text-center">
+        <input type="text" name="todo" id="todo" class="i-100">
+      </div>
+      <div class="col-2 text-center">
+        <button id="NewBtn" type="button" class="btn btn-primary">新增</button>
+      </div>
+    </div>
+  </div>
+  <div id="todoListView" class="container mt-3">
+
+  </div>
+  <template id="todotem">
+    <div class="row justify-content-center mt-3 todoitem">
+      <div class="col-6 align-items-center">
+        <div class="input-group">
+          <span class="input-group-text">
+            <input class="form-check-input input" type="checkbox">
+          </span>
+          <input id="listName" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" disabled>
+          <button type="button" class="btn btn-warning EditBtn">編輯</button>
+          <button type="button" class="btn btn-success SaveBtn" hidden>保存</button>
+          <button type="button" class="btn btn-danger DelBtn">刪除</button>
+        </div>
+      </div>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <script>
+    let todotem, todoListView, todoinput, newBtn, todoitem, currindex
+    newBtn = document.querySelector('#NewBtn')
+    todoinput = document.querySelector('#todo')
+    todoListView = document.querySelector('#todoListView')
+    todotem = document.querySelector('#todotem')
+    let inputgroup = document.querySelector('.input-group')
+    let dataKey = 'todoitem'
+
+    window.onload = function () {
+      setdata();
+    }
+
+    function setdata() {
+      todoListView.innerHTML = ''
+      if (localStorage.getItem(dataKey) != null) {
+        let localList = localStorage.getItem(dataKey)
+        let localFor = JSON.parse(localList)
+        localFor.forEach((item, index) => {
+          currindex = index
+          let _tem = getList(item.value, index)
+          todoListView.append(_tem)
+        })
+      }
+    }
+
+    newBtn.onclick = function () {
+      let inputText = todoinput.value
+      let _tem = getList(inputText, currindex)
+      if (inputText != '') {
+        let todolist = []
+        let todoobj = {
+          value: inputText,
+          isDone: false,
+        }
+        if (localStorage.getItem(dataKey) == null) {
+          todolist.push(todoobj)
+        } else {
+          todolist = JSON.parse(localStorage.getItem(dataKey))
+          todolist.push(todoobj)
+        }
+        localStorage.setItem(dataKey, JSON.stringify(todolist))
+        setdata()
+        todoinput.value = ''
+        inputText = ''
+      }
+    }
+
+    //   checked
+    function getList(text, index) {
+      let clonelist = todotem.content.cloneNode(true);
+      clonelist.querySelector('#listName').value = text
+      let inputItem = clonelist.querySelector('#listName')
+      let edit = clonelist.querySelector('.EditBtn')
+      let save = clonelist.querySelector('.SaveBtn')
+
+      if (localStorage.getItem(dataKey) != null) {
+        if (JSON.parse(localStorage.getItem(dataKey))[index].isDone == true) {
+          let input = clonelist.querySelector('.input')
+          input.setAttribute("checked", true)
+        }
+      }
+
+      let inputCheck = clonelist.querySelector('.input').addEventListener("click", function () {
+        currindex = index
+        if (JSON.parse(localStorage.getItem(dataKey))[currindex].isDone == false) {
+          let todoCheck = JSON.parse(localStorage.getItem(dataKey))
+          todoCheck[currindex] = { value: todoCheck[currindex].value, isDone: true, }
+          localStorage.setItem(dataKey, JSON.stringify(todoCheck))
+        } else {
+          let todoCheck = JSON.parse(localStorage.getItem(dataKey))
+          todoCheck[currindex] = { value: todoCheck[currindex].value, isDone: false, }
+          localStorage.setItem(dataKey, JSON.stringify(todoCheck))
+        }
+      })
+
+      let editBtn = clonelist.querySelector('.EditBtn').addEventListener("click", function () {
+        currindex = index
+        inputItem.disabled = false
+        edit.hidden = true
+        save.hidden = false
+      })
+
+      let saveBtn = clonelist.querySelector('.SaveBtn').addEventListener("click", function () {
+        currindex = index
+        // console.log(currindex)
+        let _loc = JSON.parse(localStorage.getItem(dataKey))
+        let _inputobj = {
+          value: inputItem.value,
+          isDone: _loc[currindex].isDone,
+        }
+        _loc.splice(currindex, 1, _inputobj)
+        localStorage.setItem(dataKey, JSON.stringify(_loc))
+        setdata()
+        inputItem.disabled = true
+        edit.hidden = false
+        save.hidden = true
+      })
+
+      let delBtn = clonelist.querySelector('.DelBtn').addEventListener("click", function () {
+        currindex = index
+        let _loc = JSON.parse(localStorage.getItem(dataKey))
+        _loc.splice(currindex, 1)
+        _loc.indexOf(_loc[currindex])
+        localStorage.setItem(dataKey, JSON.stringify(_loc))
+        // console.log(_loc);
+        // console.log(`[dataindex="${currindex}"]`)
+        setdata()
+        if (JSON.parse(localStorage.getItem(dataKey)).length == 0) {
+          localStorage.removeItem(dataKey)
+        }
+      })
+
+      return clonelist
+    }
+
+  </script>
+</body>
+
+</html>
