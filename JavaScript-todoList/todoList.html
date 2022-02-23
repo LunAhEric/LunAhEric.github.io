@@ -30,7 +30,6 @@
     </div>
   </div>
   <div id="todoListView" class="container mt-3">
-
   </div>
   <template id="todotem">
     <div class="row justify-content-center mt-3 todoitem">
@@ -46,11 +45,9 @@
         </div>
       </div>
   </template>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
-
   <script>
     let todotem, todoListView, todoinput, newBtn, todoitem, currindex
     newBtn = document.querySelector('#NewBtn')
@@ -59,11 +56,9 @@
     todotem = document.querySelector('#todotem')
     let inputgroup = document.querySelector('.input-group')
     let dataKey = 'todoitem'
-
     window.onload = function () {
       setdata();
     }
-
     function setdata() {
       todoListView.innerHTML = ''
       if (localStorage.getItem(dataKey) != null) {
@@ -76,7 +71,6 @@
         })
       }
     }
-
     newBtn.onclick = function () {
       let inputText = todoinput.value
       let _tem = getList(inputText, currindex)
@@ -98,8 +92,6 @@
         inputText = ''
       }
     }
-
-    //   checked
     function getList(text, index) {
       let clonelist = todotem.content.cloneNode(true);
       clonelist.querySelector('#listName').value = text
@@ -113,7 +105,6 @@
           input.setAttribute("checked", true)
         }
       }
-
       let inputCheck = clonelist.querySelector('.input').addEventListener("click", function () {
         currindex = index
         if (JSON.parse(localStorage.getItem(dataKey))[currindex].isDone == false) {
@@ -126,17 +117,14 @@
           localStorage.setItem(dataKey, JSON.stringify(todoCheck))
         }
       })
-
       let editBtn = clonelist.querySelector('.EditBtn').addEventListener("click", function () {
         currindex = index
         inputItem.disabled = false
         edit.hidden = true
         save.hidden = false
       })
-
       let saveBtn = clonelist.querySelector('.SaveBtn').addEventListener("click", function () {
         currindex = index
-        // console.log(currindex)
         let _loc = JSON.parse(localStorage.getItem(dataKey))
         let _inputobj = {
           value: inputItem.value,
@@ -149,24 +137,19 @@
         edit.hidden = false
         save.hidden = true
       })
-
       let delBtn = clonelist.querySelector('.DelBtn').addEventListener("click", function () {
         currindex = index
         let _loc = JSON.parse(localStorage.getItem(dataKey))
         _loc.splice(currindex, 1)
         _loc.indexOf(_loc[currindex])
         localStorage.setItem(dataKey, JSON.stringify(_loc))
-        // console.log(_loc);
-        // console.log(`[dataindex="${currindex}"]`)
         setdata()
         if (JSON.parse(localStorage.getItem(dataKey)).length == 0) {
           localStorage.removeItem(dataKey)
         }
       })
-
       return clonelist
     }
-
   </script>
 </body>
 
