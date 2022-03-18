@@ -6,7 +6,7 @@ let nextPageBtn = document.querySelector("#nextPageBtn"),
 
 nextPageBtn.onclick = function () {
     if (newOrgan.checked) {
-        window.location.assign("/UserCenter/ApplyOrganizer/ApplyOrganizer.html")
+        window.location.assign("../../UserCenter/ApplyOrganizer/ApplyOrganizer.html")
     }
     if (userName.checked) {
         window.location.assign("../Theme/Theme.html")
