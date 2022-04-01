@@ -21,12 +21,12 @@
         </div>
         <div class="row mb-3 justify-content-center align-items-center text-center">
             <div class="col-12 col-md-5 col-lg-3">
-                <label id="strlab" for="string" class="w-100"></label>
+                <label id="strlab" for="string" class="w-100 text-break"></label>
             </div>
         </div>
         <div class="row mb-3 justify-content-center align-items-center text-center">
             <div class="col-12 col-md-5 col-lg-3">
-                <input id="strinput" type="text" name="string" placeholder="輸入文字" class="w-100">
+                <input id="strinput" type="text" name="string" placeholder="輸入文字" maxlength="100" class="w-100">
             </div>
         </div>
         <div class="row mb-3 justify-content-center align-items-center text-center">
@@ -45,7 +45,8 @@
         const strbtn = document.querySelector('#strbtn')
         const strlab = document.querySelector('#strlab')
 
-        document.getElementById("strbtn").addEventListener("click", function () {
+        strinput.focus();
+        strbtn.addEventListener("click", function () {
             if (strinput.value != '') {
                 let _tempstr = strinput.value.split('').reverse()
                 let _tt = ''
@@ -54,9 +55,15 @@
                 });
                 strinput.value = ''
                 strlab.innerText = _tt.toString()
+                strinput.focus();
             }
         })
-
+        strinput.addEventListener("keyup", function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                strbtn.click();
+            }
+        })
     </script>
 </body>
 
